@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/dashboards.css">
+
+  <script src="../js/sessao.js"></script>
+  <script src="../js/alerta.js"></script>
+</head>
+<style>
+  .comunidade {
+    width: 80%;
+    position: relative;
+    top: 0;
+    left: 20%;
+    background-color: whitesmoke;
+    height: 100vh;
+    overflow: auto;
+
+  }
+</style>
+
+<body>
+
+  <div class="janela">
+    <div class="header-left">
+      <h1>Vida Marinha</h1>
+
+      <div class="hello">
+        <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+      </div>
+
+      <div class="btn-nav-white">
+        <a href="./Comunidade.html">
+          <h3>Comunidade</h3>
+        </a>
+      </div>
+
+      <div class="btn-nav">
+
+        <h3>Gráficos</h3>
+
+      </div>
+
+      <div class="btn-nav-white">
+        <a href="./mural.html">
+          <h3>Mural de Avisos</h3>
+        </a>
+      </div>
+
+      <div class="btn-logout" onclick="limparSessao()">
+        <h3>Sair</h3>
+      </div>
+
+    </div>
+
+    <div class="comunidade">
+      <h1 class="Title-post">Mande a sua curiosidade</h1>
+      <div class="campos">
+        <input name="descricao" id="descricao" type="text" class="ipt-campo-estilizacao">
+        <input name="foto" id="foto" type="file" class="ipt-imagem-estilizacao" hidden />
+        <label for="foto" class="post-img-style">
+          Selecionar Imagem
+        </label>
+        <button onclick="enviar()" class="btn-submit">Enviar</button>
+      </div>
+
+      <div id="container" class="container">
+
+      </div>
+    </div>
+
+
+  </div>
+
+
+</body>
+
+</html>
+
+<script>
+  b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+  b_usuario.innerHTML += sessionStorage.ID_USUARIO;
+
+  window.onload = function () {
+
+    validarSessao();
+
+    console.log("ID do usuário:", sessionStorage.ID_USUARIO);
+
+    buscarPost()
+  }
+
+  function enviar() {
+    const formData = new FormData();
+    formData.append('foto', foto.files[0])
+    formData.append('descricao', descricao.value)
+    formData.append('fkusuario', sessionStorage.ID_USUARIO)
+    console.log("id: ", sessionStorage.ID_USUARIO);
+    console.log("foto: ", foto.files[0]);
+
+    console.log(sessionStorage.ID_USUARIO)
+
+    fetch("/postagens/cadastro", {
+      method: "POST",
+      body: formData
+    })
+      .then(res => {
+        if (res.ok) window.location.reload(); // Refresh to see new post
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
+
+  function buscarPost() {
+
+    fetch("/postagens/postagens", {
+      method: "GET"
+    })
+      .then(res => res.json())
+      .then(postagens => {
+
+        const container = document.getElementById("container");
+
+        container.innerHTML = "";
+
+        postagens.forEach(postagem => {
+
+          container.innerHTML += `
+            <div class="item-post" >
+              <div class="post-lado">
+                <img src="http://localhost:3333/assets/${postagem.imagem_perfil}" class="estilizacao-img">
+                <div class="desc-email">
+                  <p>${postagem.descricao}</p>
+                  <p class="email-style">${postagem.email}</p>
+                </div>
+              </div>
+              
+            </div>
+          `;
+        });
+
+      })
+      .catch(err => {
+        console.error("Erro ao buscar postagens:", err);
+      });
+    console.log("Teste");
+
+  }
+
+
+
+
+
+</script>

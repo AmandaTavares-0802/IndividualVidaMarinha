@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins";
+}
+
+.pai{
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.534) 100%, transparent) ,url('../assets/imgs/Banner-inicial.jpg');
+    background-size: cover;
+    min-height: 400px;
+}
+
+header{
+    min-height: 60px;
+    display: flex;
+}
+
+ul{
+    flex-direction: row;
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+
+li{
+    margin-right: 40px;
+}
+
+a{
+    align-self: center;
+    color: white;
+    text-decoration: none;
+}
+
+.destaque{
+    text-decoration: underline 2px;
+    transition: 0.5s ease;
+}
+
+.destaque:hover{
+    color: #E9EBF8;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 600px;
+    margin-left: 100px;
+}
+
+p{
+    max-width: 500px;
+    color: white;
+    font-size: 20px
+}
+
+button{
+    margin-top: 20px;
+    padding: 10px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 2px white solid;
+    color: white;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+
+button:hover{
+    background-color: #FFAB03;
+    color: #FFAB03;
+    border: 2px #FFAB03 solid;
+}
+
+span{
+    color: #FFAB03;
+    font-weight: bold;
+}
+
+.div-flex{
+    min-height: 400px;
+    width: 100%;
+    background-color: #dbdbdb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    margin-top: 20px;
+    color: #000080;
+}
+
+.content{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+img{
+    width: 100px;
+    height: 100px;
+}
+
+.flex-row{
+    margin-left: 10px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #000080;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 200px;
+}
+
+.informacao{
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.alerta_erro{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card_erro {
+  display: none;
+  background-color: #fff;
+  color: black;
+  width: 230px;
+  position: fixed;
+  border-radius: 4px;
+  border: #ED145B 3px solid;
+  padding: 10px;
+  margin-right: 10%;
+}
+
+.card_erro #mensagem_erro{
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.formulario .tipo_campo {
+  font-size: 20px;
+  font-weight: 600 !important;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin-bottom: 10px;
+  border: 2px solid #000080;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.btn {
+  font-family: "Barlow", sans-serif;
+  border: 0;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 10px 15px;
+  color: white;
+  background-color: #ED145B;
+  width: 120px;
+  align-self: center;
+  margin-top: 5px;
+}
+
+.loading-div {
+  width: 50px;
+  margin: auto;
+  display: none;
+}
+
+.loading-div img {
+  height: 50px;
+  width: 50px;
+}
+
+.login {
+  height: 650px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+
+.login .login-container {
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.card {
+  width: 500px;
+  background-color: #e5e5e5;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 430px;
+  padding: 20px 0;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.formulario {
+  display: flex;
+  height: 90%;
+  width: 80%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.formulario span {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.formulario input {
+  border: 2px solid #000080;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0;
+}
+
+.formulario select {
+  border: 2px solid #000080;
+  background-color: white;
+  color: gray;
+  height: 36px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 5px 0;
+}
+
+.botao{
+  cursor: pointer;
+  align-self: center;
+  background-color: #000080;
+  color: white;
+  border: 0;
+}
+
+.botao:hover {
+  color: #000080;
+  background-color: white;
+}
+
+.containerLogin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-login{
+  height: 270px;
+}
